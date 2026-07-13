@@ -1,0 +1,26 @@
+{
+  "name": "QuPath-CDL development catalog",
+  "description": "Development catalog for QuPath extensions maintained by the CDL team.",
+  "extensions": [
+    {
+      "name": "ShapeX",
+      "description": "Export QuPath annotations for automated laser microdissection.",
+      "author": "CDL",
+      "homepage": "https://github.com/RuneDaucke32/ShapeX-Developement",
+      "starred": false,
+      "releases": [
+        {
+          "name": "v0.1.0",
+          "main_url": "https://github.com/RuneDaucke32/ShapeX-Developement/releases/download/v0.1.0/QuPath%20ShapeX%20extension%20v0.1.0.jar",
+          "required_dependency_urls": [],
+          "optional_dependency_urls": [],
+          "javadoc_urls": [],
+          "version_range": {
+            "min": "v0.7.0",
+            "excludes": []
+          }
+        }
+      ]
+    }
+  ]
+}

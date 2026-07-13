@@ -1,0 +1,49 @@
+name: Validate catalog
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Download Groovy and QuPath catalog model
+        run: |
+          mkdir -p .catalog-tools
+          curl --fail --location --silent --show-error \
+            https://repo1.maven.org/maven2/org/apache/groovy/groovy/5.0.4/groovy-5.0.4.jar \
+            --output .catalog-tools/groovy.jar
+          curl --fail --location --silent --show-error \
+            https://repo1.maven.org/maven2/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar \
+            --output .catalog-tools/gson.jar
+          curl --fail --location --silent --show-error \
+            https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar \
+            --output .catalog-tools/slf4j-api.jar
+          curl --fail --location --silent --show-error \
+            https://maven.scijava.org/content/repositories/releases/io/github/qupath/extensionmanager/1.1.1/extensionmanager-1.1.1.jar \
+            --output .catalog-tools/extensionmanager.jar
+
+      - name: Check generated catalog
+        run: |
+          java \
+            -Dcatalog.output="$GITHUB_WORKSPACE/catalog.json" \
+            -cp ".catalog-tools/*" \
+            groovy.ui.GroovyMain \
+            cdl-catalog-generator.groovy \
+            --check
+

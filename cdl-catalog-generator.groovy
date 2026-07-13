@@ -12,7 +12,7 @@ def release = new ReleaseModel(
     "v0.1.0",
     new URI(
         "https://github.com/RuneDaucke32/ShapeX-Developement/releases/download/" +
-        "v0.1.0/QuPath%20ShapeX%20extension%20v0.1.0.jar"
+        "v0.1.0/QuPath.ShapeX.extension.v0.1.0.jar"
     ),
     null,
     null,

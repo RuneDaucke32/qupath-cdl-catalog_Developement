@@ -11,7 +11,7 @@
       "releases": [
         {
           "name": "v0.1.0",
-          "main_url": "https://github.com/RuneDaucke32/ShapeX-Developement/releases/download/v0.1.0/QuPath%20ShapeX%20extension%20v0.1.0.jar",
+          "main_url": "https://github.com/RuneDaucke32/ShapeX-Developement/releases/download/v0.1.0/QuPath.ShapeX.extension.v0.1.0.jar",
           "required_dependency_urls": [],
           "optional_dependency_urls": [],
           "javadoc_urls": [],
